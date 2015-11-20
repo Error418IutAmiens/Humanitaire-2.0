@@ -1,6 +1,14 @@
 @import url("font-awesome.min.css");
 @import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700|Open+Sans+Condensed:300,700");
 
+	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 50%;
+		font: inherit;
+		vertical-align: baseline;
+	}
 
 	body {
 		background-color: #e8e8e8;
@@ -141,7 +149,7 @@
 
 		/*Boite texte*/
 
-		.box.text-style1 .inner {
+		.box.text-style1 .inner { /*boite de texte de présentation*/
 			position: relative;
 			background-color: #272E39;
 			background-color: rgba(0, 0, 0, 0.15);
@@ -149,4 +157,20 @@
 			padding: 1.25em;
 			box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 0 0.25em 0 rgba(0, 0, 0, 0.25);
 		}
+
+		/*Boite de recherche*/
+
+
+		input[type=text] /*style de la barre de recherche et plus particulierement de la barre de recherche rapide*/
+		{
+		    color: #979797;
+		    height: 28px;
+		    padding-left: 10px;
+		    text-decoration: none;
+		    background-repeat: repeat-x;
+		    border-radius: 5px; 
+
+		    border: 0;
+		}
+		
 
