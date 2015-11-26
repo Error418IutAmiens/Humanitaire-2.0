@@ -1,0 +1,101 @@
+
+
+body 
+{
+    background-color : grey;
+}
+
+article
+{
+    background-color : white;
+    margin-left : 500 px ;
+    width: 800px;
+    border: 1px solid black;
+    text-align: justify;
+    padding: 12px;
+    margin: 300px; /* Marge extérieure de 300px */
+     margin: auto; /* On peut donc demander à ce que le bloc soit centré avec auto */
+}
+
+.info
+{
+    float: left;
+    width: 150px;
+    border: 7px groove grey;
+    width : 100 px;
+    margin-bottom : 100 px;
+}
+
+}
+
+a
+{
+    width: 800px;
+    text-align: justify;
+    padding: 12px;
+    margin: 50px; /* Marge extérieure de 50px */
+
+}
+
+img
+{    
+
+    width: 700px;    
+}
+
+header
+{
+    font-family: "Times New Roman", serif;
+    float : right;
+    margin-left: 200px;
+ 
+    width : 300px ;
+    border: 7px groove grey;
+
+}
+
+h2
+ {
+        letter-spacing: 5px;
+        font-size : 30 px;
+}
+
+p
+{
+    letter-spacing: 2px;
+    font-size : 10 px;
+    color : grey;
+}
+
+
+.imgbonhomme
+{    
+
+    display : float;
+    width: 25px;
+}
+.imgfood
+{
+    display : float;
+    width: 25px;
+}
+.imgplace
+{
+    display : float;
+    width: 25px;
+}
+.imgmedicament
+{
+    display : float;
+    width: 25px;
+}
+
+.date
+{
+     font-family: "Times New Roman", serif;
+    letter-spacing: 2px;
+    font-size : 20 px;
+    color : grey;
+}
+
+...
