@@ -164,7 +164,8 @@
 		input[type=text] /*style de la barre de recherche et plus particulierement de la barre de recherche rapide*/
 		{
 		    color: #979797;
-		    height: 28px;
+		    height: 30px;
+		    width: 215px;
 		    padding-left: 10px;
 		    text-decoration: none;
 		    background-repeat: repeat-x;
