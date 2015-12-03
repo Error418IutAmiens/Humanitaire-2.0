@@ -6,7 +6,7 @@
 <head>
 	<title>HUMAN 2.0 : Ajout de persone</title>
 	<meta charset="utf-8" />
-	<link rel="stylesheet" href="#" />
+	<link rel="stylesheet" href="FormAjoutPers.css" />
 </head>
 
 <body>
@@ -18,7 +18,11 @@
 	<div>
 
 			<form method="post" action="traitement.php">
-				<p>
+
+				<fieldset>
+					<legend><h3>Information civiles</h3></legend>
+
+					<p>
         			<label>Nom</label> : <br><input type="text" name="nom" placeholder="Nom" />
     			</p>
 
@@ -34,30 +38,64 @@
 			    </p>
 
 			    <p>
-				    Age :<br />
+				    Age <br />
 				    <input type="radio" name="age" value="moins15" id="moins15" /> <label for="moins15">Moins de 15 ans</label><br />
 				    <input type="radio" name="age" value="medium15-25" id="medium15-25" /> <label for="medium15-25">15-25 ans</label><br />
 				    <input type="radio" name="age" value="medium25-40" id="medium25-40" /> <label for="medium25-40">25-40 ans</label><br />
 				    <input type="radio" name="age" value="plus40" id="plus40" /> <label for="plus40">Plus de 40 ans</label>
    				</p>
 
-   				<p>
-   					Taille en cm :<br/>
-   					<input type="number" min="100" max="300" step="5" />
-   				</p>
+				</fieldset>
 
-   				<p>
-        			<label>Courte desctiption</label> : <br><textarea name="description" placeholder="Inserez une courte description de la personne"rows="10" cols="50"></textarea>
-    			</p>
 
-   				<p>
+				<fieldset>
+					<legend>Informations physiques</legend>
+
+					<p>
+	   					Taille en cm :<br/>
+	   					<input type="number" min="100" max="300" step="5" />
+   					</p>
+
+	   				<p>
+	        			<label>Courte desctiption</label> : <br><textarea name="description" placeholder="Inserez une courte description de la personne"rows="10" cols="50"></textarea>
+	    			</p>
+
+	    			<p>
+	   					Couleur des cheveux :<br>
+	   					<select name="cheveux">
+	   							<option value="bruns">Bruns</option>
+	   							<option value="blonds">Blonds</option>
+	   							<option value="roux">Roux</option>
+	   							<option value="chatains">Chatains</option>
+	   							<option value="grix">Grix</option>
+	   							<option value="chauve">Chauve</option>
+	   					</select>
+	   				</p>
+
+	   				<p>
+	   					Couleur des yeux :<br>
+	   					<select name="yeux">
+	   							<option value="barrons">Marrons</option>
+	   							<option value="bleus">Bleus</option>
+	   							<option value="verts">Verts</option>
+	   					</select>
+	   				</p>
+
+
+				</fieldset>
+				
+
+   				<fieldset>
+   					<legend>Informations d'accueil</legend>
+
+   					<p>
 				     <label>Etat</label>:<br>
 				     <input type="radio" name="etat" value="conscient" id="conscient" /> <label for="conscient">Conscient</label><br />
 				     <input type="radio" name="etat" value="inconscient" id="inconscient" /> <label for="inconscient">Inconscient</label><br />
 			    </p>
 
    				<p>
-   					Pays de provenance :<br>
+   					Pays de provenance <br>
 					<select name="pays"> 
 						<option value="France" selected="selected">France </option>
 						<option value="Afghanistan">Afghanistan </option>
@@ -292,26 +330,7 @@
 
    				</p>
 
-   				<p>
-   					Couleur des cheveux :<br>
-   					<select name="cheveux">
-   							<option value="bruns">Bruns</option>
-   							<option value="blonds">Blonds</option>
-   							<option value="roux">Roux</option>
-   							<option value="chatains">Chatains</option>
-   							<option value="grix">Grix</option>
-   							<option value="chauve">Chauve</option>
-   					</select>
-   				</p>
-
-   				<p>
-   					Couleur des yeux :<br>
-   					<select name="yeux">
-   							<option value="barrons">Marrons</option>
-   							<option value="bleus">Bleus</option>
-   							<option value="verts">Verts</option>
-   					</select>
-   				</p>
+   				
 
    				<p>
    					Zone géographique du camp :<br>
@@ -362,6 +381,10 @@
    							<option value="famine">Famine</option>
    					</select>
    				</p>
+
+   				</fieldset>
+
+   				
 
 
 			</form>
