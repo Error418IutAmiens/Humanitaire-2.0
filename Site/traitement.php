@@ -48,11 +48,18 @@ if(isset($_POST['etat'])){
 	}
 	
 	
-	//debug
-		$values = $values.");";
-		$req = $req.") ".$values;
-		echo $req;
-	//
+	$values = $values.");";
+	$req = $req.") ".$values;
+	$db->exec($req);
+	$id_data = $db->lastInsertId();	
+	$req2 = "insert into presence (dateArrivee,id_pers,id_camp)
+				VALUES(NOW(),".$id_data.",".$_POST['camp'].");";				
+	$db->exec($req2);
+	
+	header('Location: FormAjoutPers.php?ret=OK'); 
+}
+else{
+header('Location: FormAjoutPers.php?ret=KO');
 }
 
 ?>
