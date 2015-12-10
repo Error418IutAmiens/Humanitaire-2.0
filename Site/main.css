@@ -14,7 +14,7 @@
 
 article
 {
-    background-color : white;
+    background-color : #EFECCA;
     margin-left : 700 px ;
     width: 800px;
     border: 1px solid black;
@@ -329,3 +329,8 @@ box-shadow: 0.25em 0 0 0 #fbfbfb, 0 0 0.25em 0em rgba(0, 0, 0, 0.25);
     display : float;
     width: 25px;
   }
+
+ .formulaire{
+
+ }
+

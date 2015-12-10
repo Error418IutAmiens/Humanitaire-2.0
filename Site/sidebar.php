@@ -8,8 +8,8 @@
 	<nav id="nav">
 		<ul>
 			<li class="current"><a href="FormAjoutPers.php">Ajouter une personne</a></li> 	<!--Envoie vers une page formulaire d'ajout de personne -->
-			<li><a href="formulairecamps.html">Rechercher un camp</a></li> 					<!--Envoie vers une page formulaire de recherche de camp-->
-			<li><a href="formulairepersonne.html">Rechercher une personne</a></li> 				<!--Envoie vers une page formulaire de recherche de personne-->
+			<li><a href="recherchecamp.php">Rechercher un camp</a></li> 					<!--Envoie vers une page formulaire de recherche de camp-->
+			<li><a href="recherchepers.php">Rechercher une personne</a></li> 				<!--Envoie vers une page formulaire de recherche de personne-->
 		</ul>
 	</nav>
 

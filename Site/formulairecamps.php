@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-	<html>
-	<head>
-		<title>Striped by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		
-		<link rel="stylesheet" href="test.css" />
-	</head>
 
-	<body>
-
-	 
-	 
 	<article>
+	
+	<div class = "formulaire">
 	<h2>Formulaire de recherche d'un camp</h2>
 	<p> Veuillez donner les cacteristiques du camps : </p>
 
@@ -57,16 +46,6 @@
 	   
 		   
 		</form>
-
+	</div>
 	
 	</article>
-	
-
-	
-	
-	
-	
-	</body>
-
-
-</html>
