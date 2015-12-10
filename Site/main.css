@@ -1,5 +1,6 @@
 @import url("font-awesome.min.css");
 @import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700|Open+Sans+Condensed:300,700");
+@import "body.css"; /*inclusion de la deuxième feuille de style*/ 
 
 	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 		margin: 0;
@@ -9,6 +10,19 @@
 		font: inherit;
 		vertical-align: baseline;
 	}
+
+
+article
+{
+    background-color : white;
+    margin-left : 700 px ;
+    width: 800px;
+    border: 1px solid black;
+    text-align: justify;
+    padding: 12px;
+    margin: 300px; /* Marge extérieure de 300px */
+    margin: auto; /* On peut donc demander à ce que le bloc soit centré avec auto */
+}
 
 	body {
 		background-color: #e8e8e8;
@@ -98,6 +112,7 @@
 	/* MENU */
 
 	#menu {
+		float: left;
 		color: #aaa;
 		color: rgba(255, 255, 255, 0.55);
 		text-shadow: -1px -1px 0px rgba(0, 0, 0, 0.5);
@@ -106,6 +121,7 @@
 		background: #364050 url("images/bg01.png");
 		overflow-y: auto;
 		left: 0;
+		top:0;
 		box-shadow: inset -0.1em 0em 0.35em 0em rgba(0, 0, 0, 0.15);
 	}
 
@@ -147,25 +163,13 @@
 			margin: 0 0 1.25em 0;
 		}
 
-		/*Boite texte*/
 
-		.box.text-style1 .inner { /*boite de texte de présentation*/
-			position: relative;
-			background-color: #272E39;
-			background-color: rgba(0, 0, 0, 0.15);
-			border-radius: 0.4em;
-			padding: 1.25em;
-			box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 0 0.25em 0 rgba(0, 0, 0, 0.25);
-		}
-
-		/*Boite de recherche*/
 
 
 		input[type=text] /*style de la barre de recherche et plus particulierement de la barre de recherche rapide*/
 		{
 		    color: #979797;
-		    height: 30px;
-		    width: 215px;
+		    height: 28px;
 		    padding-left: 10px;
 		    text-decoration: none;
 		    background-repeat: repeat-x;
@@ -174,4 +178,154 @@
 		    border: 0;
 		}
 		
+/* Ajustements */
 
+			body {
+				min-width: 1200px;
+				font-size: 12pt;
+			}
+
+			input, textarea, select {
+				font-size: 12pt;
+			}
+
+		/* Box */
+
+	.box.text-style1 .inner { /*boite de texte de présentation*/
+		position: relative;
+		background-color: #272E39;
+		background-color: rgba(0, 0, 0, 0.15);
+		border-radius: 0.4em;
+		padding: 1.25em;
+		box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05), inset 0 0 0.25em 0 rgba(0, 0, 0, 0.25);
+	}
+
+
+		.box.post {
+			position: relative;
+		}
+		.box.post .info {
+			float: left;
+		    border: 7px groove grey;
+		    width : 100 px;
+		    margin-bottom : 100 px;
+			position: absolute;
+			width: 5.5em;
+			overflow: hidden;
+			background-color: #fff;
+			background-image: url("images/bg02.png");
+			left: -10.5em;
+			top: 0;
+			padding: 1.5em 1em 1.5em 1em;
+			border-top-left-radius: 0.4em;
+			border-bottom-left-radius: 0.4em;
+		}
+
+		.box.post .info .stats {
+			margin: 0;
+			cursor: default;
+		}
+
+		.box.post .info .stats a {
+			font-size: 0.8em;
+			text-decoration: none;
+			color: #232323;
+			font-weight: 700;
+			line-height: 1em;
+		}
+
+			.box.post .info .stats {
+				position: relative;
+				z-index: 1;
+			}
+
+				.box.post .info .stats li {
+					margin: 1.25em 0 0 0;
+				}
+
+					.box.post .info .stats li a {
+						position: relative;
+						display: block;
+						text-align: right;
+						padding: 0 0.5em 0 0.5em;
+					}
+
+						.box.post .info .stats li a:before {
+							position: absolute;
+							left: 0;
+							top: 50%;
+							margin-top: -0.5em;
+							font-size: 16px;
+							width: 1.5em;
+							text-align: center;
+							opacity: 0.35;
+						}
+
+		.box.post h2 {
+			font-size: 3.25em;
+			line-height: 1.25em;
+		}
+
+box-shadow: 0.25em 0 0 0 #fbfbfb, 0 0 0.25em 0em rgba(0, 0, 0, 0.25);
+		}
+
+		.box.post header {
+			padding: 2.75em 0 0 0;
+			margin: 0 0 3em 0;
+		}
+
+			.box.post header > p {
+				font-size: 2.25em;
+				line-height: 1.5em;
+				position: relative;
+				top: -0.65em;
+				margin-bottom: -0.65em;
+			}
+
+
+			.box.post .info .date {
+				position: relative;
+				z-index: 1;
+				font-family: 'Open Sans Condensed', sans-serif;
+				font-weight: 400;
+				text-align: center;
+				display: block;
+				font-size: 1.5em;
+				color: #999;
+				border-bottom: solid 1px #ddd;
+				padding: 0 0 1em 0;
+				margin: 0 0 0.75em 0;
+			}
+
+				.box.post .info .date .year,
+				.box.post .info .date .month span {
+					display: none;
+				}
+
+				.box.post .info .date .day {
+					display: block;
+					margin: 0.25em 0 0 0;
+					font-size: 1.5em;
+					font-weight: 700;
+					color: #1b252a;
+				}
+
+
+
+
+/* Content */
+
+	#content {
+		background-color: #fff;
+		background-image: url("images/bg02.png");
+		padding: 3em 5em 8em 5em;
+		margin-left: 11em;
+		width: 100%
+	}
+
+		
+/*Icones*/
+.icone {
+    display : float;
+    width: 25px;
+  }
