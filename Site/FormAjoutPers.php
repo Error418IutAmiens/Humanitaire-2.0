@@ -74,7 +74,7 @@
 
 					<p>
 	   					Taille en cm :<br/>
-	   					<input type="number" min="100" max="300" step="5" />
+	   					<input type="number" name="taille" min="100" max="300" step="5" />
    					</p>
 
 	   				<p>

@@ -44,7 +44,7 @@ if(isset($_POST['etat'])){
 	}
 	if(isset($_POST['description'])){
 		$req = $req.",descriptif";
-		$values = $values.",'".$_POST['description']."'";
+		$values = $values.",\"".$_POST['description']."\"";
 	}
 	
 	
