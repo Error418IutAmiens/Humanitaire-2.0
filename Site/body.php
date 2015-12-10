@@ -1,9 +1,6 @@
 <!-- Content -->
 <div id="content">
-<<<<<<< HEAD
-=======
 	<div class="inner">
->>>>>>> master
 		<!-- Post -->
 		<article class="box post post-excerpt">
 			<header>
@@ -16,17 +13,12 @@
 				<span class="date"><span class="month">novembre</span><span class="day"> 12</span><span class="year"> 2015</span></span>
 
 				<ul class="stats">
-<<<<<<< HEAD
-					<li><a  ><img src="images/bonhomme.png" alt=""   class="icone" /></a>16</a></li>
-					<li><a ><img src="images/food.png" alt=""        class="icone"/></a>16</a></li>
-					<li><a  ><img src="images/place.png" alt=""      class="icone" /></a>16</a></li>
-					<li><a  ><img src="images/medicament.png" alt="" class="icone" /></a>16</a></li>
-=======
+
 					<li><a  ><img src="images/bonhomme.png" alt=""   class="imgbonhomme" /></a>16</a></li>
 					<li><a ><img src="images/food.png" alt=""        class="imgfood"/></a>16</a></li>
 					<li><a  ><img src="images/place.png" alt=""      class="imgplace" /></a>16</a></li>
 					<li><a  ><img src="images/medicament.png" alt="" class="imgmedicament" /></a>16</a></li>
->>>>>>> master
+
 				</ul>
 			</div>
 			<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
@@ -49,10 +41,6 @@
 			<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
 	
 	<p> PHOTO DU PAYS !!!! </p>
-	
-		</article>
-<<<<<<< HEAD
-=======
+
 	</div>
->>>>>>> master
 </div>

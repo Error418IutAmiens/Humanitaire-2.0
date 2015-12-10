@@ -7,9 +7,9 @@
 	<!--Navigation-->
 	<nav id="nav">
 		<ul>
-			<li class="current"><a href="#">Ajouter une personne</a></li> 	<!--Envoie vers une page formulaire d'ajout de personne -->
-			<li><a href="#">Rechercher un camp</a></li> 					<!--Envoie vers une page formulaire de recherche de camp-->
-			<li><a href="#">Rechercher une personne</a></li> 				<!--Envoie vers une page formulaire de recherche de personne-->
+			<li class="current"><a href="FormAjoutPers.php">Ajouter une personne</a></li> 	<!--Envoie vers une page formulaire d'ajout de personne -->
+			<li><a href="formulairecamps.html">Rechercher un camp</a></li> 					<!--Envoie vers une page formulaire de recherche de camp-->
+			<li><a href="formulairepersonne.html">Rechercher une personne</a></li> 				<!--Envoie vers une page formulaire de recherche de personne-->
 		</ul>
 	</nav>
 
@@ -22,13 +22,13 @@
 				</div>
 			</section>
 
-	<!-- Search -->
+	<!-- Search >
 			<section class="box search">
 				<h2>Recherche rapide</h2>
 				<form method="post" action="#">
 					<input type="text" class="text" name="search" placeholder="Search" />
 				</form>
-			</section>
+			</section> -->
 
 	<!-- Flux -->
 	<section class="box recent-posts">
