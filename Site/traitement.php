@@ -1,54 +1,65 @@
-<!DOCTYPE html>
-<html>
-    <head>
-		<title>human2.0</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="test.css" />
-    </head>
+<?php
 
-	<body>
-	<h2> recup des données recherche personne </h2>
-	<?php
-		if(!empty($_POST['nom'])){
-			print ("nom saisi: ${_POST['nom']}")};
-		if(!empty($_POST['prenom'])){
-			print ("prenom saisi : ${_POST['prenom']}")};
-		if(!empty($_POST['pays'])){	
-			print ("nationnalité : ${_POST['pays']}")};
-		if(!empty($_POST['etat'])){
-			print ("Son etat est : ${_POST['etat']}")};
-		if(!empty($_POST['age'])){
-			print ("Son Âge : ${_POST['age']}")};
-		if(!empty($_POST['cheveux'])){
-			print ("Sa couleur des cheveux : ${_POST['cheveux']}")};
-		if(!empty($_POST['yeux'])){
-			print ("Sa couleur des yeux: ${_POST['yeux']}")};
-		if(!empty($_POST['zonecamp'])){
-			print ("Son camp se situe: ${_POST['zonecamp']}")};
-		if(!empty($_POST['typeref'])){
-			print ("C'est un refugié de type ${_POST['typeref']}")if(!empty($_POST['nom_du_champ'])){;	
-	?>
-	<h2> recup des données recherche camp</h2>
-		<?php
-		if(!empty($_POST['nom_camp'])){
-			print ("nom du camp saisi: ${_POST['nom_camp']}")};
-		if(!empty($_POST['pays_camp'])){
-			print ("Pays du camp saisi : ${_POST['pays_camp']}")};
-		if(!empty($_POST['longitude'])&& (!empty($_POST['latitude'])){
-			print ("Ses coordonnées géographiques sont: ${_POST['latitude']} ${_POST['longitude']} ")};
-		if(!empty($_POST['nb_places'])){
-			print ("Nombre de places restantes : ${_POST['nb_places']}")};
-		if(!empty($_POST['nb_medecin'])){
-			print ("Nombre de medecins sur place : ${_POST['nb_medecin']}")};
-	
-	?>
-	
-	
-	
-	
-	
-	</body>
+try {
+    $strConnection = 'mysql:host=localhost;port=3306;dbname=humanitaire';
+    $arrExtraParam= array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8");
+    $db = new PDO($strConnection, 'root', '', $arrExtraParam);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}
+catch(PDOException $e){
+    $msg = 'ERREUR PDO dans ' . $e->getFile() . ' L.' . $e->getLine() . ' : ' . $e->getMessage();
+    die($msg);
+}
 
+if(isset($_POST['etat'])){
+	$req = "insert into personne (etatConscience,sexe,trancheAge,couleurCheveux,couleurYeux,typeRefugie,nationalite";
+	$values = "values(";
+			
+	if($_POST['etat'] == 'conscient'){
+		$values = $values.'1';
+	}
+	else{
+		$values = $values.'0';
+	}
+	
+	$values = $values.",'".$_POST['sexe']."'";
+	$values = $values.",'".$_POST['age']."'";
+	$values = $values.",'".$_POST['cheveux']."'";
+	$values = $values.",'".$_POST['yeux']."'";
+	$values = $values.",'".$_POST['typeref']."'";
+	$values = $values.",'".$_POST['pays']."'";
+	
+	
+	if(isset($_POST['nom'])){
+		$req = $req.",nom";
+		$values = $values.",'".$_POST['nom']."'";
+	}
+	if(isset($_POST['prenom'])){
+		$req = $req.",prenom";
+		$values = $values.",'".$_POST['prenom']."'";
+	}
+	if(isset($_POST['taille'])){
+		$req = $req.",taille";
+		$values = $values.','.$_POST['taille'];
+	}
+	if(isset($_POST['description'])){
+		$req = $req.",descriptif";
+		$values = $values.",\"".$_POST['description']."\"";
+	}
+	
+	
+	$values = $values.");";
+	$req = $req.") ".$values;
+	$db->exec($req);
+	$id_data = $db->lastInsertId();	
+	$req2 = "insert into presence (dateArrivee,id_pers,id_camp)
+				VALUES(NOW(),".$id_data.",".$_POST['camp'].");";				
+	$db->exec($req2);
+	
+	header('Location: FormAjoutPers.php?ret=OK'); 
+}
+else{
+header('Location: FormAjoutPers.php?ret=KO');
+}
 
-</html>
+?>
