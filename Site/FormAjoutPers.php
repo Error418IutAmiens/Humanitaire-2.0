@@ -1,60 +1,129 @@
-<!DOCTYPE html>
-	<html>
-	<head>
-		<title>Striped by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		
-		<link rel="stylesheet" href="test.css" />
-	</head>
+<html>
+<div id="content">
+<?PHP
 
-	<body>
-	
-	<article>
-	<h2>Formulaire de recherche d'une personne</h2>
-	<p> Veuillez donner les cacteristiques de la personne : </p>
+	try {
+		$strConnection = 'mysql:host=localhost;port=3306;dbname=humanitaire'; //Ligne 1
+		$arrExtraParam= array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"); //Ligne 2
+		$db = new PDO($strConnection, 'root', '', $arrExtraParam); //Ligne 3; Instancie la connexion
+		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);//Ligne 4
+	}
+	catch(PDOException $e) {
+		$msg = 'ERREUR PDO dans ' . $e->getFile() . ' L.' . $e->getLine() . ' : ' . $e->getMessage();
+		die($msg);
+	}						
 
+	if(isset($_GET['ret'])){
+		if($_GET['ret'] == 'OK'){
+			echo "<CENTER>La personne a été ajoutée</CENTER>";
+		}
+		else{
+			echo "<CENTER>Renseignements non valides, la personne n'a pas été ajoutée</CENTER>";
+		}
+	}
 	
-	
-<!--	label       // pour le CSS
-{
-	display: block;
-	width: 300px;
-	float: left;
-} -->
+?>
+<head>
+	<title>HUMAN 2.0 : Ajout de persone</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="FormAjoutPers.css" />
+</head>
 
-	<form method="post" action="traitement.php">
+<body>
+	<div>
+		<h2>Ajout d'une personne</h2>
+	</div>
+
+	<div>
+
+			<BR><form method="post" action="traitement.php">
+
+				<fieldset>
+					<legend><h3>Information civiles</h3></legend>
+
 				<p>
-        			<label>Nom</label> : <br><input type="text" name="nom" placeholder="Nom" />
-    			</p>
-
-    			<p>
         			<label>Prenom</label> : <br><input type="text" name="prenom" placeholder="Prenom" />
+    			</p>	
+					
+				<p>
+					<label>Nom</label> : <br><input type="text" name="nom" placeholder="Nom" />
     			</p>
 
-
     			<p>
-				     <label>Sexe</label>:<br>
-				     <input type="radio" name="sexe" value="Homme" id="Homme" /> <label for="moins15">Homme</label><br />
-				     <input type="radio" name="sexe" value="Homme-25" id="Homme" /> <label for="Homme">Femme</label><br />
+				     <BR><label>Sexe</label>:<br>
+				     <input type="radio" name="sexe" checked="checked" value="H" id="H" /> <label for="H">Homme</label><br />
+				     <input type="radio" name="sexe" value="F" id="F" /> <label for="F">Femme</label><br />
 			    </p>
 
-			    <p>
-				    Age :<br />
-				    <input type="radio" name="age" value="moins15" id="moins15" /> <label for="moins15">Moins de 15 ans</label><br />
+			    <BR><p>
+				    Age <br />
+				    <input type="radio" name="age" value="moins15" checked="checked" id="moins15" /> <label for="moins15">Moins de 15 ans</label><br />
 				    <input type="radio" name="age" value="medium15-25" id="medium15-25" /> <label for="medium15-25">15-25 ans</label><br />
 				    <input type="radio" name="age" value="medium25-40" id="medium25-40" /> <label for="medium25-40">25-40 ans</label><br />
 				    <input type="radio" name="age" value="plus40" id="plus40" /> <label for="plus40">Plus de 40 ans</label>
    				</p>
 
-   				<p>
+				</fieldset>
+
+				<BR>
+				<fieldset>
+					<legend>Informations physiques</legend>
+
+					<p>
+	   					Taille en cm :<br/>
+	   					<input type="number" name="taille" min="50" max="300" step="1" />
+   					</p>
+
+	   				<BR><p>
+	        			<label>Courte desctiption</label> : <br><textarea name="description" placeholder="Inserez une courte description de la personne"rows="10" cols="50"></textarea>
+	    			</p>
+
+	    			<BR><p>
+	   					Couleur des cheveux :<br>
+	   					<select name="cheveux">
+	   							<option value="bruns">Bruns</option>
+	   							<option value="blonds">Blonds</option>
+	   							<option value="roux">Roux</option>
+	   							<option value="chatains">Chatains</option>
+	   							<option value="grix">Grix</option>
+	   							<option value="chauve">Chauve</option>
+	   					</select>
+	   				</p>
+
+	   				<BR><p>
+	   					Couleur des yeux :<br>
+	   					<select name="yeux">
+	   							<option value="marrons">Marrons</option>
+	   							<option value="bleus">Bleus</option>
+	   							<option value="verts">Verts</option>
+	   					</select>
+	   				</p>
+
+
+				</fieldset>
+				
+				<BR>
+   				<fieldset>
+   					<legend>Informations d'accueil</legend>
+
+   					<p>
 				     <label>Etat</label>:<br>
-				     <input type="radio" name="etat" value="conscient" id="conscient" /> <label for="conscient">Conscient</label><br />
+				     <input type="radio" name="etat" checked="checked" value="conscient" id="conscient" /> <label for="conscient">Conscient</label><br />
 				     <input type="radio" name="etat" value="inconscient" id="inconscient" /> <label for="inconscient">Inconscient</label><br />
 			    </p>
 
-   				<p>
-   					Nationalité:<br>
+				<BR><p>
+   					Type de réfugié :<br>
+   					<select name="typeref">
+   							<option value="politique">Politique</option>
+   							<option value="guerre">Guerre</option>
+   							<option value="catastrophe">Catastrophe naturelle</option>
+   							<option value="famine">Famine</option>
+   					</select>
+   				</p>
+				
+   				<BR><p>
+   					Pays de provenance <br>
 					<select name="pays"> 
 						<option value="France" selected="selected">France </option>
 						<option value="Afghanistan">Afghanistan </option>
@@ -289,90 +358,77 @@
 
    				</p>
 
-   				<p>
-   					Couleur des cheveux :<br>
-   					<select name="cheveux">
-   							<option value="bruns">Bruns</option>
-   							<option value="blonds">Blonds</option>
-   							<option value="roux">Roux</option>
-   							<option value="chatains">Chatains</option>
-   							<option value="grix">Grix</option>
-   							<option value="chauve">Chauve</option>
-   					</select>
-   				</p>
+   				
 
-   				<p>
-   					Couleur des yeux :<br>
-   					<select name="yeux">
-   							<option value="barrons">Marrons</option>
-   							<option value="bleus">Bleus</option>
-   							<option value="verts">Verts</option>
-   					</select>
-   				</p>
+   				<BR><p>
+   					Camp de réfugié :<br>
+   					<select name="camp">
+					
+							<?PHP
+							
 
-   				<p>
-   					Zone géographique du camp :<br>
-   					<select name="zonecamp">
-
-   							<optgroup label="Europe">
-   								<option value="europecentre">Europe Centrale</option>
-   								<option value="europenord">Europe Nord</option>
-   								<option value="europesud">Europe Sud</option>
-   								<option value="europeest">Europe Est</option>
-   								<option value="europeouest">Europe Ouest</option>
-   							</optgroup>
-
-   							<optgroup label="Afrique">
-   								<option value="afriquecentre">Afrique Centrale</option>
-   								<option value="afriquenord">Afrique Nord</option>
-   								<option value="afriquesud">Afrique Sud</option>
-   								<option value="afriqueest">Afrique Est</option>
-   								<option value="arfiqueouest">Afrique Ouest</option>
-   							</optgroup>
-
-   							
-   							<optgroup label="Asie">
-   								<option value="asiecentre">Asie Centrale</option>
-   								<option value="asienord">Asie Nord</option>
-   								<option value="asiesud">Asie Sud</option>
-   								<option value="asieest">Asie Est</option>
-   								<option value="asieouest">Asie Ouest</option>
-   							</optgroup>
-
-   							<optgroup label="Amerique">
-   								<option value="ameriquecentre">Amerique Centrale</option>
-   								<option value="ameriquenord">Amerique Nord</option>
-   								<option value="ameriquesud">Amerique Sud</option>
-   								<option value="ameriqueest">Amerique Est</option>
-   								<option value="ameriqueouest">Amerique Ouest</option>
-   							</optgroup>
+							echo "<optgroup label='Europe'>";
+							$request = "Select * from camp where localisation like 'Europe%' order by localisation;";
+							$res = $db->query($request);
+							$res->setFetchMode(PDO::FETCH_OBJ);							
+							while($data = $res->fetch())
+							{
+								echo "<option value='".$data->id_camp."'>".$data->localisation." - ".$data->nom."</option>";
+							
+							}	
+							echo "</optgroup>";
+							
+							echo "<optgroup label='Afrique'>";
+							$request = "Select * from camp where localisation like 'Afrique%' order by localisation;";
+							$res = $db->query($request);
+							$res->setFetchMode(PDO::FETCH_OBJ);							
+							while($data = $res->fetch())
+							{
+								echo "<option value='".$data->id_camp."'>".$data->localisation." - ".$data->nom."</option>";
+							
+							}	
+							echo "</optgroup>";
+							
+							echo "<optgroup label='Asie'>";
+							$request = "Select * from camp where localisation like 'Asie%' order by localisation;";
+							$res = $db->query($request);
+							$res->setFetchMode(PDO::FETCH_OBJ);							
+							while($data = $res->fetch())
+							{
+								echo "<option value='".$data->id_camp."'>".$data->localisation." - ".$data->nom."</option>";
+							
+							}	
+							echo "</optgroup>";
+							
+							echo "<optgroup label='Amerique'>";
+							$request = "Select * from camp where localisation like 'Amerique%' order by localisation;";
+							$res = $db->query($request);
+							$res->setFetchMode(PDO::FETCH_OBJ);							
+							while($data = $res->fetch())
+							{
+								echo "<option value='".$data->id_camp."'>".$data->localisation." - ".$data->nom."</option>";
+							
+							}	
+							echo "</optgroup>";
+							
+							?> 													  							  								
    							
    					</select>
    				</p>
 
-   				<p>
-   					Type de réfugié :<br>
-   					<select name="typeref">
-   							<option value="politique">Politique</option>
-   							<option value="guerre">Guerre</option>
-   							<option value="catastrophe">Catastrophe naturelle</option>
-   							<option value="famine">Famine</option>
-   					</select>
-   				</p>
+   				
 
+   				</fieldset>
+
+   				<br>
+   				<input type="submit" value="Ajouter" />
+   				<br><br>
 
 			</form>
 
 	</div>
-	
-	</article>
-	
-
-	
-	
-	
-	
-	</body>
+</div>
+</body>
 
 
 </html>
