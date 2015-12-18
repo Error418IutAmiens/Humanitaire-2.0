@@ -9,7 +9,9 @@
 	</head>
 
 	<body>
-	
+
+	 
+	 
 	<article>
 	<h2>Formulaire de recherche d'un camp</h2>
 	<p> Veuillez donner les cacteristiques du camps : </p>
@@ -22,7 +24,7 @@
 	width: 300px;
 	float: left;
 } -->
-		<form id="monform" method="POST" action="recherche.php">
+		<form id="monform" method="post" action="recherche.php">
 		
 		   <label for="nom_camp">Nom du camp : </label><input type="text" name="nom_camp" /><br /><br /><br />
 		   
@@ -30,7 +32,6 @@
 		  
 			   <label for="pays">Pays</label>
 			   <select name="pays_camp" id="pays">
-			   <option value="" selected="selected"> </option>
 				   <optgroup label="Europe">
 					   <option value="france">France</option>
 					   <option value="espagne">Espagne</option>

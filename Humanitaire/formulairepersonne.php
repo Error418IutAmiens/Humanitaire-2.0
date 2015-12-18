@@ -1,4 +1,21 @@
+<<<<<<< HEAD:Humanitaire/formulairepersonne.php
 	<div id = "content">
+=======
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Striped by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="stylesheet" href="test.css" />
+	</head>
+
+	<body>
+	 <?php include("sidebar.php"); ?>
+	 
+	 
+>>>>>>> 697335067452b458b5cc1e67a52e1eae1c2f31b6:Site/formulairepersonne.html
 	<article>
 	<div class = "formulaire">
 	<h2>Formulaire de recherche d'une personne</h2>
@@ -13,7 +30,11 @@
 	float: left;
 } -->
 
+<<<<<<< HEAD:Humanitaire/formulairepersonne.php
 	<form method="post" action="ResrecherchePers.php">
+=======
+	<form method="post" action="recherche.php">
+>>>>>>> 697335067452b458b5cc1e67a52e1eae1c2f31b6:Site/formulairepersonne.html
 				<p>
         			<label>Nom</label> : <br><input type="text" name="nom" placeholder="Nom" />
     			</p>
@@ -307,7 +328,11 @@
    							<option value="famine">Famine</option>
    					</select>
    				</p>
+<<<<<<< HEAD:Humanitaire/formulairepersonne.php
    				 <BR><input type="submit" name ="Valider_Personne" value="Rechercher" />
+=======
+   				 <input type="submit" name ="Valider_Personne" value="Valider" />
+>>>>>>> 697335067452b458b5cc1e67a52e1eae1c2f31b6:Site/formulairepersonne.html
 
 			</form>
 
